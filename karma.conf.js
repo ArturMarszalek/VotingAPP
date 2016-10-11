@@ -12,7 +12,10 @@ module.exports = function (config) {
             'bower_components/angular-mocks/angular-mocks.js',
             'main.js',
             'components/**/*.js',
-            'test*/**/*.js',
+            'services/**/*.js',
+            'data/**/*.js',
+            'DataBaseConnectionResolver.js',
+            'test/**/*.js',
         ],
 
         autoWatch: true,

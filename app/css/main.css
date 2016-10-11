@@ -1,0 +1,22 @@
+#propositionDescriptionContent i{
+    font-size: 40px;
+}
+#propositionDescriptionParagraph{
+    margin: 10px;
+}
+#answerIconContainer i {
+    font-size: 36px;
+}
+i[status="approved"]{
+    color: green;
+}
+i[status="rejected"]{
+    color: red;
+}
+i[status="inProgress"]{
+    color: dimgray;
+}
+
+status-icons {
+    overflow: hidden;
+}
