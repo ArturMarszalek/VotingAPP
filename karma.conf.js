@@ -14,6 +14,7 @@ module.exports = function (config) {
             'components/**/*.js',
             'services/**/*.js',
             'data/**/*.js',
+            'model/**/*.js',
             'DataBaseConnectionResolver.js',
             'test/**/*.js',
         ],

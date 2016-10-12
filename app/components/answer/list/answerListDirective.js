@@ -6,7 +6,8 @@ angular.module('VotingApp')
             templateUrl: "components/answer/list/answerListTemplate.html",
             scope: {
                 answers: "=",
-            }
+            },
+            controller: "answerListController as ctrl"
         }
     });
 

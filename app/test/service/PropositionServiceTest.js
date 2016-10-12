@@ -1,6 +1,6 @@
 'use strict';
 
-describe('propositionService tests', function () {
+describe('propositionService', function () {
 
     var testedService, httpBaseServiceMock;
 

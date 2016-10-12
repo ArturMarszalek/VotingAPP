@@ -3,7 +3,7 @@
  * Its simulate backend requests...
  */
 var DataBaseConnectionResolver = {};
-var SERVER_TIME_OUT = 800;
+var SERVER_TIME_OUT = 600;
 
 DataBaseConnectionResolver.createResponseForUrl = function (url) {
     console.log("sent HTTP request for URL: " + url);
@@ -54,9 +54,9 @@ DataBaseConnectionResolver.listProposition = function () {
 DataBaseConnectionResolver.returnPropositionWithAnswers = function () {
     var proposition = {
         answers: [
-            {id: 1, userId: 1, userName: "Ralph", status: PropositionStatus.APPROVED},
-            {id: 2, userId: 2, userName: "Viraj", status: PropositionStatus.APPROVED},
-            {id: 3, userId: 3, userName: "Manisha", status: PropositionStatus.IN_PROGRESS}
+            {id: 1, userId: 1, userName: "Artur", status: PropositionStatus.APPROVED},
+            {id: 2, userId: 2, userName: "Monika", status: PropositionStatus.APPROVED},
+            {id: 3, userId: 3, userName: "Ritka", status: PropositionStatus.IN_PROGRESS}
         ]
     };
     return this.createBackendResponse(proposition);
