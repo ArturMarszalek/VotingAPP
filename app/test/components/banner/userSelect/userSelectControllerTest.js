@@ -14,7 +14,6 @@ describe('userSelectController ', function () {
         }
     );
 
-
     it('should initialize scope data', function () {
         //given
 

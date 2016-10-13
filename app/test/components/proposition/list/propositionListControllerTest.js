@@ -11,12 +11,11 @@ describe('propositionListController ', function () {
                 currentScope = $rootScope.$new();
                 $controllerManager = _$controller_;
             })
-            spyOn(currentScope, "$digest");
         }
     );
 
 
-    it('bannerController should be defined', function () {
+    it('propositionListController should be defined', function () {
         //given
 
         //when
@@ -47,7 +46,6 @@ describe('propositionListController ', function () {
         testedController = $controllerManager('propositionListController', {$scope: currentScope});
         //then
         expect(currentScope.propositions).toEqual(["propositionList"]);
-        expect(currentScope.$digest).toHaveBeenCalled();
     });
 
     it('should sent request to baseService when current proposition is not same as clicked, then set proposition answers from response', function () {
@@ -68,7 +66,6 @@ describe('propositionListController ', function () {
         //then
         expect(currentScope.currentProposition).toEqual(proposition);
         expect(currentScope.currentProposition.answers).toEqual(["answerList"]);
-        expect(currentScope.$digest).toHaveBeenCalled();
     });
 
     it('should set current propostion to empty object when user click same proposition', function () {
@@ -80,7 +77,6 @@ describe('propositionListController ', function () {
         currentScope.propositionClick(proposition);
         //then
         expect(currentScope.currentProposition).toEqual({});
-        expect(currentScope.$digest).not.toHaveBeenCalled();
     });
 
 });

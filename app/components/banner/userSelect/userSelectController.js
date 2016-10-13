@@ -4,11 +4,7 @@ angular.module('VotingApp')
         initializeElement();
 
         function initializeElement() {
-            $scope.users = [
-                {name: "Artur", id: 1},
-                {name: "Monika", id: 2},
-                {name: "Ritka", id: 3}
-            ];
+            $scope.users = DataBaseConnectionResolver.availableUsersList;
             var defaultValue = $scope.users[0];
             $scope.selectedUser = defaultValue;
             userSessionModel.setCurrentUser(defaultValue);

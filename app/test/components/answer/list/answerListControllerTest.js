@@ -2,15 +2,19 @@
 
 describe('answerListController', function () {
 
-    var testedController, currentScope, $controllerManager, userSessionModelMock
+    var testedController, currentScope, $controllerManager, userSessionModelMock, answerServiceMock;
 
     beforeEach(module('VotingApp'));
     beforeEach(function () {
-            inject(function (_$controller_, $rootScope, userSessionModel) {
+            inject(function (_$controller_, $rootScope, userSessionModel, answerService) {
+                answerServiceMock = answerService;
                 userSessionModelMock = userSessionModel;
                 currentScope = $rootScope.$new();
                 $controllerManager = _$controller_;
             })
+            spyOn(answerServiceMock, 'update').and.returnValue({then:function(){
+
+            }});
         }
     );
 
@@ -56,6 +60,7 @@ describe('answerListController', function () {
         currentScope.onReject(answer)
         //then
         expect(answer.status).toEqual(PropositionStatus.REJECTED);
+        expect(answerServiceMock.update).toHaveBeenCalledWith(answer);
     });
 
     it('should set answer status as approved', function () {
@@ -63,9 +68,10 @@ describe('answerListController', function () {
         testedController = $controllerManager('answerListController', {$scope: currentScope});
         var answer = {};
         //when
-        currentScope.onApprove(answer)
+        currentScope.onApprove(answer);
         //then
         expect(answer.status).toEqual(PropositionStatus.APPROVED);
+        expect(answerServiceMock.update).toHaveBeenCalledWith(answer);
     });
 
 });

@@ -2,9 +2,9 @@
     <div layout="row" layout="center">
         <status-icons id="answerIconContainer" status="answer.status"></status-icons>
         <p id="answerUserNameParagraph">
-            {{answer.userName}}
+            {{answer.user.name}}
         </p>
-        <div layout="row" ng-if="currentUserId == answer.userId && answer.status=='IN_PROGRESS'">
+        <div layout="row" ng-if="currentUserId == answer.user.id && answer.status=='IN_PROGRESS'">
             <md-button class="md-raised" ng-click="onApprove(answer)">Accept</md-button>
             <md-button class="md-raised" ng-click="onReject(answer)">Reject</md-button>
         </div>
