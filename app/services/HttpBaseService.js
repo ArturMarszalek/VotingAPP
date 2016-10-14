@@ -16,8 +16,8 @@ angular.module('VotingApp')
             });
         }
 
-        service.sendPost = function(serviceUrl, method, content) {
-            var url = serviceUrl +"/" + method;
+        service.sendPost = function (serviceUrl, method, content) {
+            var url = "/" + serviceUrl + "/" + method;
             //TO REMOVE AFTER BACKEND WORKS  -- START //TODO
             return DataBaseConnectionResolver.createPostResponseForUrl(url, content);
             return $http({

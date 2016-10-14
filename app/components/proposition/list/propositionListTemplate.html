@@ -1,7 +1,8 @@
 <md-content>
-    <md-list>
+    <md-list layout="column">
+        <add-proposition></add-proposition>
         <md-list-item ng-repeat="proposition in propositions">
-            <md-card class="md-whiteframe-1dp" flex="100" layout="column">
+            <md-card id="propositionItem" class="md-whiteframe-1dp" flex="100" layout="column">
                 <md-content flex="100" layout="row" layout-align="center center" id="propositionDescriptionContent"
                             ng-click="propositionClick(proposition)">
                     <p flex="80" id="propositionDescriptionParagraph">{{proposition.description}}</p>

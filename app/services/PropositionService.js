@@ -11,5 +11,9 @@ angular.module('VotingApp')
             return httpBaseService.sendGet(this.url, "getPropositionWithAnswers", propositionId);
         };
 
+        service.add = function (propostion) {
+            return httpBaseService.sendPost(this.url, "create", propostion);
+        };
+
         return service;
     }]);

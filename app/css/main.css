@@ -4,6 +4,10 @@
 #propositionDescriptionParagraph{
     margin: 10px;
 }
+#addPropositionIcon {
+    font-size: 36px;
+    color: blue;
+}
 #answerIconContainer i {
     font-size: 36px;
 }
@@ -19,4 +23,8 @@ i[status="inProgress"]{
 
 status-icons {
     overflow: hidden;
+}
+
+#propositionItem {
+    margin: 1px;
 }
