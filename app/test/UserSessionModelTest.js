@@ -50,4 +50,14 @@ describe('UserSessionModel', function () {
         expect(userHandlerUser).toEqual(undefined);
     });
 
+    it('should return copied user object', function () {
+        //given
+        var userInModel = {id: 2};
+        testedModel.setCurrentUser(userInModel)
+        //when
+        var copiedUser = testedModel.getCopiedUser();
+        //then
+        expect(copiedUser===userInModel).toBeFalsy();
+    });
+
 });

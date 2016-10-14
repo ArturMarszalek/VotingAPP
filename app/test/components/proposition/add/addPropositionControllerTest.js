@@ -81,14 +81,18 @@ describe('addPropositionController ', function () {
     it('should change state state to default state', function () {
         //given
         testedController = $controllerManager('addPropositionController', {$scope: currentScope});
+        currentScope.propositionToAdd = {someObject:"data"}
+        currentScope.state = "wrongState";
         spyOn(propositionServiceMock, 'add').and.returnValue({
-            then: function () {
+            then: function (callBack) {
+                callBack({data:{}})
             }
         });
         //when
         currentScope.addProposition();
         //then
         expect(currentScope.state).toEqual("readyToAdd");
+        expect(currentScope.propositionToAdd).toEqual({});
     });
 
     it('should show toast to user', function () {

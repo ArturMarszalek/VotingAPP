@@ -5,8 +5,9 @@
             <md-card id="propositionItem" class="md-whiteframe-1dp" flex="100" layout="column">
                 <md-content flex="100" layout="row" layout-align="center center" id="propositionDescriptionContent"
                             ng-click="propositionClick(proposition)">
-                    <p flex="80" id="propositionDescriptionParagraph">{{proposition.description}}</p>
-                    <status-icons flex="20" status="proposition.status"></status-icons>
+                    <p layout-fill id="propositionDescriptionParagraph">{{proposition.description}}</p>
+                    <p> {{proposition.owner.name}}</p>
+                    <status-icons status="proposition.status"></status-icons>
                 </md-content>
                 <answer-list ng-if="currentProposition.id===proposition.id"
                              answers="currentProposition.answers"></answer-list>

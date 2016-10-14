@@ -27,6 +27,10 @@ angular.module('VotingApp')
             this.getCurrentUserId = function () {
                 return currentUser.id;
             };
+
+            this.getCopiedUser = function () {
+                return angular.copy(currentUser);
+            };
         }
         return new userSessionModel();
     }]);

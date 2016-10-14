@@ -45,6 +45,7 @@ var DataBaseConnectionResolver = {};
     };
 
     DataBaseConnectionResolver.returnCreatedProposition = function (content) {
+        console.log(content.owner);
         var proposition = {
             id: _propositionIdCounter++,
             description: content.description,
@@ -54,7 +55,7 @@ var DataBaseConnectionResolver = {};
                 {id: _answerIdCounteer++, user: availableUsersList[2], status: PropositionStatus.IN_PROGRESS}
             ],
             status: PropositionStatus.IN_PROGRESS,
-            ownerId: content.ownerId,
+            owner: content.owner,
         };
         return this.createBackendResponse(proposition);
     };
@@ -92,7 +93,7 @@ var DataBaseConnectionResolver = {};
             id: 1,
             description: "I want to buy 100 computers and monitors. I know its expensive but we can try..",
             status: PropositionStatus.IN_PROGRESS,
-            ownerId: 1,
+            owner: availableUsersList[0],
             answers: [
                 {id: 1, user: availableUsersList[0], status: PropositionStatus.REJECTED},
                 {id: 2, user: availableUsersList[1], status: PropositionStatus.IN_PROGRESS},
@@ -103,7 +104,7 @@ var DataBaseConnectionResolver = {};
             id: 2,
             description: "W przeciwieństwie do rozpowszechnionych opinii, Lorem Ipsum nie jest tylko przypadkowym tekstem. Ma ono korzenie w klasycznej łacińskiej literaturze z 45 roku przed Chrystusem, czyli ponad 2000 lat temu! Richard McClintock, wykładowca łaciny na uniwersytecie Hampden-Sydney w Virginii, przyjrzał się uważniej jednemu z najbardziej niejasnych słów w Lorem Ipsum – consectetur – i po wielu poszukiwaniach odnalazł niezaprzeczalne źródło: Lorem Ipsum pochodzi z fragmentów (1.10.32 i 1.10.33) „de Finibus Bonorum et Malorum”, czyli „O granicy dobra i zła”, napisanej właśnie w 45 p.n.e. przez Cycerona. Jest to bardzo popularna w czasach renesansu rozprawa na temat etyki. Pierwszy wiersz Lorem Ipsum, „Lorem ipsum dolor sit amet...” pochodzi właśnie z sekcji 1.10.32.",
             status: PropositionStatus.REJECTED,
-            ownerId: 2,
+            owner: availableUsersList[1],
             answers: [
                 {id: 1, user: availableUsersList[0], status: PropositionStatus.APPROVED},
                 {id: 2, user: availableUsersList[1], status: PropositionStatus.IN_PROGRESS},
@@ -114,7 +115,7 @@ var DataBaseConnectionResolver = {};
             id: 3,
             description: "I want to eat dinner every day. Please let me do that. Lets vote!",
             status: PropositionStatus.APPROVED,
-            ownerId: 3,
+            owner: availableUsersList[2],
             answers: [
                 {id: 1, user: availableUsersList[0], status: PropositionStatus.REJECTED},
                 {id: 2, user: availableUsersList[1], status: PropositionStatus.IN_PROGRESS},
