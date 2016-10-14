@@ -35,5 +35,8 @@ angular.module('VotingApp')
             updateAnswer(answer);
         };
 
+        $scope.allowToModify = function (answer){
+            return $scope.currentUserId == answer.user.id && answer.status=='IN_PROGRESS';
+        }
     }]);
 

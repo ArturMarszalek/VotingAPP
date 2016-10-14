@@ -28,3 +28,7 @@ status-icons {
 #propositionItem {
     margin: 1px;
 }
+
+.hideMessageBox .md-errors-spacer {
+    display:none;
+}

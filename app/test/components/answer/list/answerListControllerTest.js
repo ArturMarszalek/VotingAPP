@@ -74,4 +74,37 @@ describe('answerListController', function () {
         expect(answerServiceMock.update).toHaveBeenCalledWith(answer);
     });
 
+    it('should allow to modify when current user answer is same like user and status is work in progress', function () {
+        //given
+        testedController = $controllerManager('answerListController', {$scope: currentScope});
+        currentScope.currentUserId=15;
+        var answer = {user:{id:15}, status: PropositionStatus.IN_PROGRESS};
+        //when
+        var result = currentScope.allowToModify(answer);
+        //then
+        expect(result).toBeTruthy();
+    });
+
+    it('should not allow to modify when current user answer is same like user and status is NOT work in progress', function () {
+        //given
+        testedController = $controllerManager('answerListController', {$scope: currentScope});
+        currentScope.currentUserId=15;
+        var answer = {user:{id:15}, status: PropositionStatus.REJECTED};
+        //when
+        var result = currentScope.allowToModify(answer);
+        //then
+        expect(result).toBeFalsy();
+    });
+
+    it('should not allow to modify when current user answer is NOT same like user and status is work in progress', function () {
+        //given
+        testedController = $controllerManager('answerListController', {$scope: currentScope});
+        currentScope.currentUserId=14;
+        var answer = {user:{id:15}, status: PropositionStatus.IN_PROGRESS};
+        //when
+        var result = currentScope.allowToModify(answer);
+        //then
+        expect(result).toBeFalsy();
+    });
+
 });

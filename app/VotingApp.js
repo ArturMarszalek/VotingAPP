@@ -45,14 +45,13 @@ var DataBaseConnectionResolver = {};
     };
 
     DataBaseConnectionResolver.returnCreatedProposition = function (content) {
-        console.log(content.owner);
         var proposition = {
             id: _propositionIdCounter++,
             description: content.description,
             answers: [
-                {id: _answerIdCounteer++, user: availableUsersList[0], status: PropositionStatus.IN_PROGRESS},
-                {id: _answerIdCounteer++, user: availableUsersList[1], status: PropositionStatus.IN_PROGRESS},
-                {id: _answerIdCounteer++, user: availableUsersList[2], status: PropositionStatus.IN_PROGRESS}
+                {id: _answerIdCounteer++, user: availableUsersList[0], status: PropositionStatus.IN_PROGRESS, comment:""},
+                {id: _answerIdCounteer++, user: availableUsersList[1], status: PropositionStatus.IN_PROGRESS, comment:""},
+                {id: _answerIdCounteer++, user: availableUsersList[2], status: PropositionStatus.IN_PROGRESS, comment:""}
             ],
             status: PropositionStatus.IN_PROGRESS,
             owner: content.owner,
@@ -95,9 +94,9 @@ var DataBaseConnectionResolver = {};
             status: PropositionStatus.IN_PROGRESS,
             owner: availableUsersList[0],
             answers: [
-                {id: 1, user: availableUsersList[0], status: PropositionStatus.REJECTED},
-                {id: 2, user: availableUsersList[1], status: PropositionStatus.IN_PROGRESS},
-                {id: 3, user: availableUsersList[2], status: PropositionStatus.APPROVED}
+                {id: 1, user: availableUsersList[0], status: PropositionStatus.REJECTED,  comment:"I cant agree with that, sorry."},
+                {id: 2, user: availableUsersList[1], status: PropositionStatus.IN_PROGRESS,  comment: ""},
+                {id: 3, user: availableUsersList[2], status: PropositionStatus.APPROVED, comment:"Ok! good idea!"}
             ]
         },
         {
@@ -106,9 +105,9 @@ var DataBaseConnectionResolver = {};
             status: PropositionStatus.REJECTED,
             owner: availableUsersList[1],
             answers: [
-                {id: 1, user: availableUsersList[0], status: PropositionStatus.APPROVED},
-                {id: 2, user: availableUsersList[1], status: PropositionStatus.IN_PROGRESS},
-                {id: 3, user: availableUsersList[2], status: PropositionStatus.APPROVED}
+                {id: 1, user: availableUsersList[0], status: PropositionStatus.APPROVED, comment:"Ok! good idea!"},
+                {id: 2, user: availableUsersList[1], status: PropositionStatus.IN_PROGRESS, comment:""},
+                {id: 3, user: availableUsersList[2], status: PropositionStatus.APPROVED,  comment:"Cool! good idea!"}
             ]
         },
         {
@@ -117,9 +116,9 @@ var DataBaseConnectionResolver = {};
             status: PropositionStatus.APPROVED,
             owner: availableUsersList[2],
             answers: [
-                {id: 1, user: availableUsersList[0], status: PropositionStatus.REJECTED},
-                {id: 2, user: availableUsersList[1], status: PropositionStatus.IN_PROGRESS},
-                {id: 3, user: availableUsersList[2], status: PropositionStatus.REJECTED}
+                {id: 1, user: availableUsersList[0], status: PropositionStatus.REJECTED, comment:"I cant agree with that, sorry."},
+                {id: 2, user: availableUsersList[1], status: PropositionStatus.IN_PROGRESS, comment:""},
+                {id: 3, user: availableUsersList[2], status: PropositionStatus.REJECTED, comment:"I cant agree with that, sorry."}
             ]
         }
     ]
