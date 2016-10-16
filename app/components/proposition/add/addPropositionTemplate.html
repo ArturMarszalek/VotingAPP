@@ -1,19 +1,9 @@
 <div layout="column" layout-align="end end" flex="100">
-    <md-button ng-click="onAddButtonClick()" ng-if="state=='readyToAdd'" class="md-fab md-mini md-primary"
+    <md-button ng-click="onAddButtonClick($event)" class="md-fab md-mini md-primary"
                aria-label="note_add_button">
         <md-icon md-font-library="material-icons">note_add</md-icon>
+        <md-tooltip md-direction="bottom">Add proposition</md-tooltip>
     </md-button>
-    <md-card flex="100" ng-if="state=='adding'" layout-fill>
-        <form name="propositionForm" ng-submit="addProposition()">
-            <md-input-container >
-                <label>Description</label>
-                <input ng-model="propositionToAdd.description" required>
-            </md-input-container>
-            <md-button type="submit" class="md-fab md-mini md-primary" aria-label="note_add_button">
-                <md-icon md-font-library="material-icons">save</md-icon>
-            </md-button>
-        </form>
-    </md-card>
 </div>
 
 

@@ -33,18 +33,8 @@ describe('addPropositionController ', function () {
         testedController = $controllerManager('addPropositionController', {$scope: currentScope});
         //then
         expect(currentScope.propositionToAdd).toEqual({});
-        expect(currentScope.state).toEqual("readyToAdd");
         expect(currentScope.onAddButtonClick).toBeDefined();
         expect(currentScope.addProposition).toBeDefined();
-    });
-
-    it('should change state to adding', function () {
-        //given
-        testedController = $controllerManager('addPropositionController', {$scope: currentScope});
-        //when
-        currentScope.onAddButtonClick();
-        //then
-        expect(currentScope.state).toEqual("adding");
     });
 
     it('should add proposition using propositionService', function () {
@@ -78,11 +68,10 @@ describe('addPropositionController ', function () {
         expect(currentScope.propositions).toEqual([propositionToAdd]);
     });
 
-    it('should change state state to default state', function () {
+    it('should make propositionToAdd empty after add proposition', function () {
         //given
         testedController = $controllerManager('addPropositionController', {$scope: currentScope});
         currentScope.propositionToAdd = {someObject:"data"}
-        currentScope.state = "wrongState";
         spyOn(propositionServiceMock, 'add').and.returnValue({
             then: function (callBack) {
                 callBack({data:{}})
@@ -91,7 +80,6 @@ describe('addPropositionController ', function () {
         //when
         currentScope.addProposition();
         //then
-        expect(currentScope.state).toEqual("readyToAdd");
         expect(currentScope.propositionToAdd).toEqual({});
     });
 

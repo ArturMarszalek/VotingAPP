@@ -1,15 +1,36 @@
-<md-content ng-repeat="answer in answers" layout="row" layout-align="left center">
-        <status-icons id="answerIconContainer" status="answer.status"></status-icons>
-        <p id="answerUserNameParagraph">
+<md-list layout="column" id="answerList">
+    <div layout="row" layout-fill id="answerListHeader">
+        <md-subheader class="md-no-sticky">Answers list</md-subheader>
+    </div>
+    <md-list-item id="answerItem" ng-repeat="answer in answers" layout="row" layout-align="left center">
+        <p class="answerListCounter">
+            <i class="material-icons personPinIcon">
+                person_pin
+            </i>
+        </p>
+        <p class="answerUserNameParagraph">
             {{answer.user.name}}
         </p>
-        <md-input-container class="hideMessageBox" ng-if="answer.comment || allowToModify(answer)">
-            <label>Comment: </label>
-            <input name="test" ng-model="answer.comment"
-                   ng-disabled="!allowToModify(answer)">
-        </md-input-container>
-        <div layout="row" ng-if="allowToModify(answer)">
-            <md-button class="md-raised" ng-click="onApprove(answer)">Accept</md-button>
-            <md-button class="md-raised" ng-click="onReject(answer)">Reject</md-button>
+        <status-icons id="answerIconContainer" status="answer.status"></status-icons>
+        <div layout-fill class="answerCommentInput">
+            <md-input-container layout-fill class="hideMessageBox" ng-if="answer.comment || allowToModify(answer)">
+                <label>Comment: </label>
+                <input type="text" ng-model="answer.comment"
+                       ng-disabled="!allowToModify(answer)" ng-if="answer.comment || allowToModify(answer)">
+            </md-input-container>
         </div>
-</md-content>
+        <div layout="row" ng-if="allowToModify(answer)">
+            <md-button ng-click="onApprove(answer)" class="md-fab md-mini md-primary approveButton"
+                       aria-label="on_approve_button">
+                <md-icon md-font-library="material-icons">thumb_up</md-icon>
+                <md-tooltip md-direction="bottom">Approve proposition</md-tooltip>
+            </md-button>
+            <md-button ng-click="onReject(answer)" class="md-fab md-mini md-primary rejectButton"
+                       aria-label="on_reject_button">
+                <md-icon md-font-library="material-icons">thumb_down</md-icon>
+                <md-tooltip md-direction="bottom">Reject proposition</md-tooltip>
+            </md-button>
+        </div>
+        <md-divider ng-if="!$last"></md-divider>
+    </md-list-item>
+</md-list>

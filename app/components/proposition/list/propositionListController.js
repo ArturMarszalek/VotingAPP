@@ -1,6 +1,6 @@
 'use strict';
 angular.module('VotingApp')
-    .controller('propositionListController', ["$scope", "propositionService", function ($scope, propositionService) {
+    .controller('propositionListController', ["$scope", "propositionService", "userSessionModel", "$mdToast", function ($scope, propositionService, userSessionModel, $mdToast) {
         $scope.propositions = [];
         $scope.currentProposition = {};
         propositionService.getPropositionsList().then(function (promise) {
@@ -18,5 +18,29 @@ angular.module('VotingApp')
             }
         }
 
+        $scope.allowToModify = function (proposition) {
+            return userSessionModel.getCurrentUserId() == proposition.owner.id && proposition.status == PropositionStatus.IN_PROGRESS;
+        }
+
+        $scope.onApprove = function (proposition) {
+            proposition.status = PropositionStatus.APPROVED;
+            update(proposition);
+        }
+
+        $scope.onReject = function (proposition) {
+            proposition.status = PropositionStatus.REJECTED;
+            update(proposition)
+        }
+
+        function update(proposition) {
+            propositionService.update(proposition).then(function () {
+                $mdToast.show(
+                    $mdToast.simple()
+                        .textContent('Proposition updated!')
+                        .position('top right')
+                        .hideDelay(1500)
+                );
+            });
+        }
     }]);
 

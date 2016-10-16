@@ -15,5 +15,9 @@ angular.module('VotingApp')
             return httpBaseService.sendPost(this.url, "create", propostion);
         };
 
+        service.update = function (propostion) {
+            return httpBaseService.sendPost(this.url, "update", propostion);
+        }
+
         return service;
     }]);

@@ -1,34 +1,153 @@
-#propositionDescriptionContent i{
+#propositionDescriptionContent i {
     font-size: 40px;
 }
-#propositionDescriptionParagraph{
+
+#propositionDescriptionParagraph {
     margin: 10px;
+    font-weight: bold;
 }
+
 #addPropositionIcon {
     font-size: 36px;
     color: blue;
 }
+
 #answerIconContainer i {
     font-size: 36px;
 }
-i[status="approved"]{
-    color: green;
+
+.answerUserNameParagraph {
+    min-width: 100px;
+    color: rgba(22, 29, 35, 0.58);
+    font-weight: bold;
 }
-i[status="rejected"]{
-    color: red;
-}
-i[status="inProgress"]{
-    color: dimgray;
+
+i {
+    color: #97bde0;
 }
 
 status-icons {
     overflow: hidden;
 }
 
+.answerCommentInput {
+    margin-left: 10%;
+}
+
+md-list-item:before {
+    min-height: 0px;
+}
+
+#propositionItem :hover {
+    cursor: pointer;
+}
+
 #propositionItem {
-    margin: 1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(243, 247, 251);
+    margin-bottom: 30px;
+}
+
+#propositionItem:hover {
+    background-color: rgba(243, 247, 251, 0.5);
+}
+
+.answerCommentInput md-input-container .md-input[disabled] {
+    background: none;
+}
+
+.propositionCounter {
+    font-weight: bold;
+    font-size: 18px;
+    overflow-wrap: normal !important;
+}
+
+.answerListCounter {
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .hideMessageBox .md-errors-spacer {
-    display:none;
+    display: none;
+}
+
+#bannerSmileIcon {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#answerList {
+    margin-left: 5%;
+}
+
+#addPropositionDialog {
+    padding: 15px;
+}
+
+#addPropositionInputContainer {
+    min-width: 350px;
+}
+
+#propositionDescriptionContent > status-icons,
+#answerItem > status-icons,
+#propositionDescriptionContent > p,
+#answerItem > p {
+    padding: 0 15px 0;
+    overflow: hidden;
+    overflow-wrap: break-word;
+}
+
+#propositionList {
+    margin: 20px;
+    box-shadow: #000088;
+}
+
+#propositionListHeader {
+    padding: 0 15px 0;
+}
+
+.propositionOwnerName {
+    min-width: 250px;
+    color: rgb(63, 81, 181);
+    font-weight: bold;
+}
+
+#propositionListHeader .md-subheader {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(63, 81, 181);
+    background-color: transparent;
+}
+
+#answerListHeader .md-subheader {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(63, 81, 181);
+    background-color: transparent;
+}
+
+#answerListHeader .md-subheader .md-subheader-inner {
+    padding-left: 0px;
+}
+
+.approveButton {
+    background-color: #1cba0e !important;
+}
+
+.rejectButton {
+    background-color: #e9161b !important;
+}
+
+md-content {
+    background-color: transparent;
+}
+
+.personPinIcon {
+    color: rgba(22, 29, 35, 0.58);
+}
+
+.propositionIcon i {
+    color: rgba(57, 73, 171, 0.86);
+    margin-right: 50px;
 }

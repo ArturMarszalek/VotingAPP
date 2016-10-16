@@ -42,7 +42,18 @@ describe('propositionService', function () {
         //when
         var result = testedService.add(proposition);
         //then
-        expect(httpBaseServiceMock.sendPost).toHaveBeenCalledWith('proposition', 'create', {});
+        expect(httpBaseServiceMock.sendPost).toHaveBeenCalledWith('proposition', 'create', proposition);
+        expect(result).toEqual('baseServicePromise');
+    });
+
+    it('should send request to base service -update', function () {
+        //given
+        spyOn(httpBaseServiceMock, "sendPost").and.returnValue("baseServicePromise");;
+        var proposition = {};
+        //when
+        var result = testedService.update(proposition);
+        //then
+        expect(httpBaseServiceMock.sendPost).toHaveBeenCalledWith('proposition', 'update', proposition);
         expect(result).toEqual('baseServicePromise');
     });
 

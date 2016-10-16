@@ -38,6 +38,9 @@ var DataBaseConnectionResolver = {};
         if (url == "/proposition/create") {
             return this.returnCreatedProposition(content);
         }
+        if (url == "/proposition/update") {
+            return this.createBackendResponse({});
+        }
         return this.createBackendResponse().finally(function () {
                 console.log("No matching pattern for URL: " + url);
             }
@@ -101,13 +104,13 @@ var DataBaseConnectionResolver = {};
         },
         {
             id: 2,
-            description: "W przeciwieństwie do rozpowszechnionych opinii, Lorem Ipsum nie jest tylko przypadkowym tekstem. Ma ono korzenie w klasycznej łacińskiej literaturze z 45 roku przed Chrystusem, czyli ponad 2000 lat temu! Richard McClintock, wykładowca łaciny na uniwersytecie Hampden-Sydney w Virginii, przyjrzał się uważniej jednemu z najbardziej niejasnych słów w Lorem Ipsum – consectetur – i po wielu poszukiwaniach odnalazł niezaprzeczalne źródło: Lorem Ipsum pochodzi z fragmentów (1.10.32 i 1.10.33) „de Finibus Bonorum et Malorum”, czyli „O granicy dobra i zła”, napisanej właśnie w 45 p.n.e. przez Cycerona. Jest to bardzo popularna w czasach renesansu rozprawa na temat etyki. Pierwszy wiersz Lorem Ipsum, „Lorem ipsum dolor sit amet...” pochodzi właśnie z sekcji 1.10.32.",
+            description: "I want to create a group. That group will include all developers from the word!!",
             status: PropositionStatus.REJECTED,
             owner: availableUsersList[1],
             answers: [
-                {id: 1, user: availableUsersList[0], status: PropositionStatus.APPROVED, comment:"Ok! good idea!"},
-                {id: 2, user: availableUsersList[1], status: PropositionStatus.IN_PROGRESS, comment:""},
-                {id: 3, user: availableUsersList[2], status: PropositionStatus.APPROVED,  comment:"Cool! good idea!"}
+                {id: 1, user: availableUsersList[0], status: PropositionStatus.REJECTED, comment:"I cant agree with that, sorry."},
+                {id: 2, user: availableUsersList[1], status: PropositionStatus.APPROVED, comment:"From my view, that has a sense."},
+                {id: 3, user: availableUsersList[2], status: PropositionStatus.REJECTED,  comment:"You can try it by yourself. Im off."}
             ]
         },
         {
@@ -116,9 +119,9 @@ var DataBaseConnectionResolver = {};
             status: PropositionStatus.APPROVED,
             owner: availableUsersList[2],
             answers: [
-                {id: 1, user: availableUsersList[0], status: PropositionStatus.REJECTED, comment:"I cant agree with that, sorry."},
-                {id: 2, user: availableUsersList[1], status: PropositionStatus.IN_PROGRESS, comment:""},
-                {id: 3, user: availableUsersList[2], status: PropositionStatus.REJECTED, comment:"I cant agree with that, sorry."}
+                {id: 1, user: availableUsersList[0], status: PropositionStatus.APPROVED, comment:"Ok"},
+                {id: 2, user: availableUsersList[1], status: PropositionStatus.REJECTED, comment:"Sorry, cant do that."},
+                {id: 3, user: availableUsersList[2], status: PropositionStatus.APPROVED, comment:"Great idea. Go ahead."}
             ]
         }
     ]

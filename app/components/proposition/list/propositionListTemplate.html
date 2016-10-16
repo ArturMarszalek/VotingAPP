@@ -1,19 +1,39 @@
-<md-content>
-    <md-list layout="column">
-        <add-proposition></add-proposition>
-        <md-list-item ng-repeat="proposition in propositions">
-            <md-card id="propositionItem" class="md-whiteframe-1dp" flex="100" layout="column">
+<md-card>
+    <md-list id="propositionList">
+        <div layout="row" layout-fill id="propositionListHeader">
+            <md-subheader class="md-no-sticky">Propositions list</md-subheader>
+            <add-proposition></add-proposition>
+        </div>
+
+
+        <md-list-item ng-repeat="proposition in propositions" id="propositionItem" layout="column" layout-fill>
                 <md-content flex="100" layout="row" layout-align="center center" id="propositionDescriptionContent"
-                            ng-click="propositionClick(proposition)">
+                            ng-click="propositionClick(proposition)" layout-fill>
+                    <p class="propositionCounter">{{$index+1}}.</p>
+
                     <p layout-fill id="propositionDescriptionParagraph">{{proposition.description}}</p>
-                    <p> {{proposition.owner.name}}</p>
-                    <status-icons status="proposition.status"></status-icons>
+
+                    <p class="propositionOwnerName">Created by: {{proposition.owner.name}}</p>
+                    <div layout="row" ng-if="allowToModify(proposition)">
+                        <md-button ng-click="onApprove(proposition)" class="md-fab md-mini md-primary approveButton"
+                                   aria-label="on_approve_button">
+                            <md-icon md-font-library="material-icons">check</md-icon>
+                            <md-tooltip md-direction="bottom">Approve proposition</md-tooltip>
+                        </md-button>
+                        <md-button ng-click="onReject(proposition)" class="md-fab md-mini md-primary rejectButton"
+                                   aria-label="on_reject_button">
+                            <md-icon md-font-library="material-icons">block</md-icon>
+                            <md-tooltip md-direction="bottom">Reject proposition</md-tooltip>
+                        </md-button>
+                    </div>
+                    <status-icons class="propositionIcon" status="proposition.status"></status-icons>
                 </md-content>
                 <answer-list ng-if="currentProposition.id===proposition.id"
-                             answers="currentProposition.answers"></answer-list>
-            </md-card>
+                             answers="currentProposition.answers"
+                             layout-fill></answer-list>
+                <md-divider ng-if="!$last"></md-divider>
         </md-list-item>
     </md-list>
-</md-content>
+</md-card>
 
 
